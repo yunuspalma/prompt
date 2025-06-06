@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generator Prompt Veo3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f3f4f6;
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #output {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Generator Prompt Veo3</h1>
+
+  <form id="promptForm">
+    <label>Subjek</label>
+    <input type="text" id="contoh" required>
+
+    <label>Aksi</label>
+    <input type="text" id="aksi" required>
+
+    <label>Ekspresi</label>
+    <input type="text" id="ekspresi">
+
+    <label>Tempat</label>
+    <input type="text" id="tempat">
+
+    <label>Waktu</label>
+    <select id="waktu">
+      <option>Pagi</option>
+      <option>Siang</option>
+      <option>Sore</option>
+      <option>Malam</option>
+      <option>Senja</option>
+      <option>Fajar</option>
+    </select>
+
+    <label>Gerakan Kamera</label>
+    <input type="text" id="gerakan">
+
+    <label>Pencahayaan</label>
+    <input type="text" id="pencahayaan">
+
+    <label>Gaya Video</label>
+    <input type="text" id="gaya">
+
+    <label>Suasana Video</label>
+    <input type="text" id="suasana">
+
+    <label>Suara atau Musik</label>
+    <input type="text" id="suara">
+
+    <label>Kalimat yang Diucapkan</label>
+    <input type="text" id="dialog">
+
+    <label>Detail Tambahan</label>
+    <textarea id="tambahan"></textarea>
+
+    <button type="button" onclick="generatePrompt()">Buat Prompt</button>
+  </form>
+
+  <h2>Hasil Prompt:</h2>
+  <div id="output"></div>
+
+  <script>
+    function generatePrompt() {
+      const subjek = document.getElementById('subjek').value;
+      const aksi = document.getElementById('aksi').value;
+      const ekspresi = document.getElementById('ekspresi').value;
+      const tempat = document.getElementById('tempat').value;
+      const waktu = document.getElementById('waktu').value;
+      const gerakan = document.getElementById('gerakan').value;
+      const pencahayaan = document.getElementById('pencahayaan').value;
+      const gaya = document.getElementById('gaya').value;
+      const suasana = document.getElementById('suasana').value;
+      const suara = document.getElementById('suara').value;
+      const dialog = document.getElementById('dialog').value;
+      const tambahan = document.getElementById('tambahan').value;
+
+      const prompt = `${subjek} melakukan ${aksi}, ekspresi ${ekspresi}. Berlatar di ${tempat}, waktu ${waktu.toLowerCase()}. Kamera bergerak ${gerakan}. Pencahayaan ${pencahayaan}. Gaya video ${gaya}, dengan suasana ${suasana}. Efek suara/musik: ${suara}. Dialog: \"${dialog}\". ${tambahan}`;
+
+      document.getElementById('output').innerText = prompt;
+    }
+  </script>
+</body>
+</html>
